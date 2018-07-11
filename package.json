@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-redux/router": "^9.0.0",
+    "@angular-redux/store": "^9.0.0",
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
@@ -19,8 +21,14 @@
     "@angular/http": "^6.0.3",
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
+    "@angular/pwa": "^0.6.8",
     "@angular/router": "^6.0.3",
+    "@angular/service-worker": "^6.0.3",
+    "component": "^1.1.0",
     "core-js": "^2.5.4",
+    "redux": "^4.0.0",
+    "redux-localstorage": "^0.4.1",
+    "redux-logger": "^3.0.6",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

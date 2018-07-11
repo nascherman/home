@@ -1,0 +1,5 @@
+<div class="hamburger" role="button" (click)="handleButtonClick()">
+  <div [@openTopState]="(navState | async) ? 'open' : 'closed'" class="hamburger__line" ></div>
+  <div [@openMiddleState]="(navState | async) ? 'open' : 'closed'" class="hamburger__line" ></div>
+  <div [@openBottomState]="(navState | async) ? 'open' : 'closed'" class="hamburger__line" ></div>
+</div>

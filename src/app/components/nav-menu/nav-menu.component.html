@@ -1,0 +1,5 @@
+<nav [@toolbarState]="(navState | async) ? 'open' : 'closed'">
+  <a routerLink="/elephants" routerLinkActive="active">Elephants</a>
+  <a routerLink="/lions" routerLinkActive="active">Lions</a>
+  <a routerLink="/feedback" routerLinkActive="active">Feedback</a>
+</nav>
