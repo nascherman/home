@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { RouterModule, Routes } from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgReduxModule } from "@angular-redux/store";
 import { NgReduxRouterModule } from "@angular-redux/router";
@@ -13,21 +13,24 @@ import { environment } from '../environments/environment';
 import { NavComponent } from './components/nav/nav.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { SplashComponent } from './components/splash/splash.component';
+import { SplashDialogueComponent } from './components/splash-dialogue/splash-dialogue.component';
+import { SummaryComponent } from './components/summary/summary.component';
+import { SketchesComponent } from './components/sketches/sketches.component';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
-  }
-];
+import appRoutes from './config/route.config';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HamburgerComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    SplashComponent,
+    SplashDialogueComponent,
+    SummaryComponent,
+    SketchesComponent
   ],
   imports: [
     BrowserModule,

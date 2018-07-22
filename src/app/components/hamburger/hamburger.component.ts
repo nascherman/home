@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import { select } from '@angular-redux/store';
+import {dispatch, select} from '@angular-redux/store';
 
 import animations from './hamburger.animations';
 import {Observable} from "rxjs/index";
@@ -13,7 +13,6 @@ import {Observable} from "rxjs/index";
 export class HamburgerComponent implements OnInit {
 
   @select() navState: Observable<Boolean>;
-  @Input() toggle: Function;
 
   constructor() {
   }
@@ -22,7 +21,5 @@ export class HamburgerComponent implements OnInit {
     console.log('Hamburger Init');
   }
 
-  handleButtonClick() {
-    this.toggle();
-  }
+  @dispatch() handleButtonClick = () => ({ type: 'TOGGLE_NAVIGATION' });
 }

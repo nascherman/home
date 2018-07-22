@@ -17,5 +17,5 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  @dispatch() toggleNavigation = () => ({ type: 'TOGGLE_NAVIGATION' });
+  @dispatch() handleSplashClick = () => ({ type: 'TOGGLE_NAVIGATION' });
 }

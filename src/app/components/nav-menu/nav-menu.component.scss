@@ -1,16 +1,18 @@
+@import '../../../styles/variables';
+
 nav {
   position: fixed;
   left: 0;
-  top: 5rem;
-  height: calc(100vh - 5rem);
-  width: 80vw;
+  top: $top-navigation-height;
+  height: calc(100vh - #{$top-navigation-height});
+  width: $side-menu-width;
   max-width: 325px;
   background-color: black;
 
   display: flex;
   flex-direction: column;
 
-  z-index: 3;
+  z-index: 4;
 
   a {
     margin: 2rem 0;

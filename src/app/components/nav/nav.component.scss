@@ -1,16 +1,18 @@
+@import '../../../styles/variables';
+
 .nav {
   position: fixed;
-  height: 5rem;
+  height: $top-navigation-height;
   width: 100vw;
 
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 4;
 
   display: flex;
   align-items: center;
   color: white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
 
   app-hamburger {
     margin: 0 1rem;
@@ -21,7 +23,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $responsive-width) {
   .nav {
 
     &__logo {
@@ -30,7 +32,7 @@
   }
 }
 
-.splash {
+.splash-cover {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -38,5 +40,5 @@
   top: 0;
 
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 3;
 }

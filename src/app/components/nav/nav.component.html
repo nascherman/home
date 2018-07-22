@@ -1,8 +1,10 @@
 <div role="banner" class="nav">
-  <app-hamburger [toggle]="toggleNavigation"></app-hamburger>
+  <app-hamburger></app-hamburger>
   <div class="nav__logo" role="">
-    Logo Placholder
+    Logo Placeholder
   </div>
-  <app-nav-menu></app-nav-menu>
 </div>
-<div class="splash" *ngIf="navState | async"></div>
+<app-nav-menu></app-nav-menu>
+<div class="splash-cover"
+     (click)="handleSplashClick()"
+     *ngIf="navState | async"></div>

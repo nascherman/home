@@ -1,0 +1,8 @@
+main {
+  position: relative;
+}
+
+:host /deep/ router-outlet + * {
+  position: absolute;
+  overflow: visible;
+}
