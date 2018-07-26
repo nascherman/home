@@ -10,7 +10,8 @@ import {Observable} from "rxjs/index";
 export class NavComponent implements OnInit {
   static readonly TOGGLE_NAVIGATION = 'TOGGLE_NAVIGATION';
 
-  @select() navState: Observable<Boolean>;
+  @select() navState: Observable<any>;
+  @select() router: Observable<any>
 
   constructor() { }
 

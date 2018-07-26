@@ -18,7 +18,11 @@ import { SplashDialogueComponent } from './components/splash-dialogue/splash-dia
 import { SummaryComponent } from './components/summary/summary.component';
 import { SketchesComponent } from './components/sketches/sketches.component';
 
-import appRoutes from './config/route.config';
+import {appRoutes} from './config/route.config';
+import { ContactComponent } from './components/contact/contact.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { SkillMeterComponent } from './components/skill-meter/skill-meter.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 @NgModule({
@@ -30,7 +34,11 @@ import appRoutes from './config/route.config';
     SplashComponent,
     SplashDialogueComponent,
     SummaryComponent,
-    SketchesComponent
+    SketchesComponent,
+    ContactComponent,
+    SkillsComponent,
+    SkillMeterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

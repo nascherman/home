@@ -1,0 +1,13 @@
+<div class="skill-meter__container">
+  <div class="skill-meter__list">
+    <ul>
+      <li *ngFor="let subSkill of skill.subskills">
+        <div class="bar__container">
+          <div class="bar__label"><p>{{subSkill.name}}</p></div>
+          <div class="bar__fill"></div>
+          <span>{{subSkill.rating}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

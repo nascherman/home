@@ -3,6 +3,8 @@ import { select } from '@angular-redux/store';
 import { Observable } from "rxjs/index";
 import animations from './nav-menu.animations'
 
+import {appRoutes} from "../../config/route.config";
+
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
@@ -11,4 +13,6 @@ import animations from './nav-menu.animations'
 })
 export class NavMenuComponent {
   @select() navState: Observable<Boolean>;
+
+  appRoutes = appRoutes;
 }

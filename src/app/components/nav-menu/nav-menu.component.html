@@ -1,6 +1,3 @@
 <nav [@toolbarState]="(navState | async) ? 'open' : 'closed'">
-  <a routerLink="/" routerLinkActive="active">Intro</a>
-  <a routerLink="/summary" routerLinkActive="active">Summary</a>
-  <a routerLink="/sketches" routerLinkActive="active">Sketches</a>
-  <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  <a *ngFor="let route of appRoutes" routerLink="{{route.path}}" routerLinkActive="active">{{route.path}}</a>
 </nav>

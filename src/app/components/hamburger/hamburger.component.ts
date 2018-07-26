@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 
 import animations from './hamburger.animations';
@@ -10,15 +10,11 @@ import {Observable} from "rxjs/index";
   styleUrls: ['./hamburger.component.scss'],
   animations
 })
-export class HamburgerComponent implements OnInit {
+export class HamburgerComponent {
 
   @select() navState: Observable<Boolean>;
 
   constructor() {
-  }
-
-  ngOnInit() {
-    console.log('Hamburger Init');
   }
 
   @dispatch() handleButtonClick = () => ({ type: 'TOGGLE_NAVIGATION' });

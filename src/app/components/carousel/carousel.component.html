@@ -1,0 +1,9 @@
+<div class="carousel__container">
+  <ul>
+    <li *ngFor="let item of items" [@carouselPosition]="getCarouselPosition(item)">
+      <img src="{{item.icon}}" role="button"
+           alt="{{item.name}}"/>
+      <h2>{{item.name}}</h2>
+    </li>
+  </ul>
+</div>

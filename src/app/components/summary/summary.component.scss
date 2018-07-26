@@ -1,9 +1,39 @@
+@import '../../../styles/variables';
+
 .summary {
 
   &__container {
-    background: sandybrown;
-    min-height: 100vh;
+    background: white;
+    min-height: calc(100vh - #{$top-navigation-height});
     width: 100vw;
     display: flex;
+    flex-direction: column;
+  }
+
+  &__heading-container {
+    display: flex;
+    flex-direction: column;
+    background: grey;
+    border: 1px solid darkblue;
+    padding-top: $top-navigation-height;
+  }
+
+  &__img {
+    border-radius: 50%;
+    width: 36%;
+    max-width: 20rem;
+    margin: 1rem auto;
+  }
+
+  &__heading,
+  &__brief {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  &__description {
+    padding: 1rem 2rem;
+    max-width: 40rem;
+    margin: 0 auto;
   }
 }

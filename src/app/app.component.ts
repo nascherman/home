@@ -1,31 +1,49 @@
-import {Component, OnInit} from '@angular/core';
-import {select} from "@angular-redux/store";
+import {Component, HostListener, OnInit} from '@angular/core';
+import {dispatch, NgRedux, select} from "@angular-redux/store";
 import {Observable} from "rxjs/index";
+import {Store} from 'redux';
 
-import animations from './config/global.animation';
+import animations from './config/route.animation';
 import {RouteAnimationService} from "./services/route-animation.service";
+
+import {debounce} from "./decorators/debounce.decorator";
+import {WindowRef} from "./services/window.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations
+  animations,
+  providers: [WindowRef]
 })
 export class AppComponent implements OnInit {
-  title = 'home-page';
+  static readonly IS_MOBILE_BREAKPOINT = 'IS_MOBILE_BREAKPOINT';
+
+  title: string = 'home-page';
+  lastRoute: string = '';
 
   @select() router: Observable<any>;
 
   routerOutletState: any;
 
-  lastRoute: string = '';
-
-  constructor(private routeAnimationService: RouteAnimationService) {}
+  constructor(private ngRedux: NgRedux<any>,
+              private routeAnimationService: RouteAnimationService,
+              private windowRef: WindowRef) {
+  }
 
   ngOnInit() {
+    this.setMobileBreakpoint(
+      this.determineMobileBreakpoint(this.windowRef.nativeWindow.innerWidth)
+    );
+
     this.router.subscribe(val => {
-      const lastRouteOrder = this.routeAnimationService.getRoute(this.lastRoute).order;
-      const nextRouteOrder = this.routeAnimationService.getRoute(val).order;
+      const lastRouteOrder: number = this.routeAnimationService.getRoute(this.lastRoute).order;
+      const nextRouteOrder: number = this.routeAnimationService.getRoute(val).order;
+      const navState: string = this.ngRedux.getState().navState;
+
+      if (navState) {
+        this.toggleNavigation();
+      }
 
       this.routerOutletState = {
         value: val,
@@ -35,7 +53,27 @@ export class AppComponent implements OnInit {
         }
       };
 
+
       this.lastRoute = val;
     });
   }
+
+  @HostListener('window:resize', ['$event'])
+  @debounce()
+  handleWindowResize(event) {
+    this.setMobileBreakpoint(
+      this.determineMobileBreakpoint(event.currentTarget.innerWidth)
+    );
+  }
+
+  determineMobileBreakpoint(width: number) {
+    const mobileBreakpoint = this.ngRedux.getState().responsiveBreakpoint;
+    return width < mobileBreakpoint;
+  }
+
+  @dispatch() setMobileBreakpoint = isMobileBreakpoint => ({
+    value: isMobileBreakpoint,
+    type: 'IS_MOBILE_BREAKPOINT'
+  });
+  @dispatch() toggleNavigation = () => ({type: 'TOGGLE_NAVIGATION'})
 }

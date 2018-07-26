@@ -1,0 +1,42 @@
+@import '../../../styles/variables';
+
+.skills {
+  &__container {
+    width: 100vw;
+    min-height: 100vh;
+    overflow: scroll;
+    box-sizing: border-box;
+    padding-top: $top-navigation-height;
+    background-color: cadetblue;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+
+    li {
+      text-align: center;
+      flex: 1;
+    }
+
+    img {
+      background: red;
+      border-radius: 50%;
+      width: 10rem;
+    }
+  }
+
+  &__details {
+    display: flex;
+  }
+
+  &__description {
+    padding: 0 2rem;
+    flex: 0.5;
+  }
+}
