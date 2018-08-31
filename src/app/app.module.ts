@@ -5,6 +5,8 @@ import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgReduxModule } from "@angular-redux/store";
 import { NgReduxRouterModule } from "@angular-redux/router";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { StoreModule } from './store/store.module';
 
@@ -22,7 +24,9 @@ import {appRoutes} from './config/route.config';
 import { ContactComponent } from './components/contact/contact.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SkillMeterComponent } from './components/skill-meter/skill-meter.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselComponent } from './components/mobile-selector/mobile-selector.component';
+import { FilterByPipe } from './pipes/filter-by.pipe';
+import { PhonePipe } from './pipes/phone.pipe';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ContactComponent,
     SkillsComponent,
     SkillMeterComponent,
-    CarouselComponent
+    CarouselComponent,
+    FilterByPipe,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
@@ -50,9 +56,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     BrowserAnimationsModule,
     NgReduxModule,
     NgReduxRouterModule,
-    StoreModule
+    StoreModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PhonePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

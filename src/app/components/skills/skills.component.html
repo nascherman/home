@@ -8,10 +8,10 @@
         <h2>{{skill.name}}</h2>
       </li>
     </ul>
-    <app-carousel *ngIf="isResponsiveBreakpoint | async"
+    <app-mobile-selector *ngIf="isResponsiveBreakpoint | async"
                   [items]="config.skills"
                   [currentItem]="currentSkill"
-                  [clickItemFn]="updateCurrentSkill"></app-carousel>
+                  [clickItemFn]="updateCurrentSkill"></app-mobile-selector>
   </div>
   <div class="skills__details">
     <div class="skills__description">

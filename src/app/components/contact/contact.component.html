@@ -1,3 +1,61 @@
-<p>
-  contact works!
-</p>
+<div class="contact__container">
+  <h3>Want to get in touch with me? Fill in the form to send me an email</h3>
+  <form class="contact__form"
+        #contactForm="ngForm"
+        (ngSubmit)="onSubmit()">
+
+    <div class="contact__form-errors"
+          [hidden]="!formErrors.length">
+      <span *ngFor="let error of formErrors">
+        {{error}}
+      </span>
+    </div>
+
+    <label for="contact-name">Name</label>
+    <input id="contact-name"
+           placeholder="Your name"
+           [(ngModel)]="model.name"
+           name="name"
+           autocomplete="name"
+           autofocus required/>
+
+    <div class="contact__form-row">
+      <div>
+        <label for="contact-email">Email</label>
+        <input id="contact-email"
+               placeholder="Your email"
+               [(ngModel)]="model.email"
+               name="email"
+               type="email"
+               autocomplete="email"
+               required/>
+      </div>
+      <div>
+        <label for="contact-phone">Phone</label>
+        <input id="contact-phone"
+               placeholder="Your phone number"
+               [(ngModel)]="model.phone"
+               (ngModelChange)="onPhoneChange($event)"
+               name="phone"
+               type="tel" autocomplete="tel"/>
+      </div>
+    </div>
+
+    <textarea id="contact-content" minlength="1"
+              [(ngModel)]="model.content"
+              name="content"
+              maxlength="1000"
+              placeholder="Your message"
+              spellcheck="true"
+              required></textarea>
+
+    <button type="submit">
+      Send
+    </button>
+  </form>
+  <div class="contact__social-media">
+    <a *ngFor="let item of contactItems" href="{{item.url}}">
+      <img src="{{item.imgUrl}}" alt="{{item.name}}"/>
+    </a>
+  </div>
+</div>

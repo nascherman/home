@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-skill-meter',
@@ -8,9 +8,13 @@ import {Component, Input, OnInit} from '@angular/core';
 export class SkillMeterComponent implements OnInit {
   @Input() skill: any;
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
+  }
+
+  getBarWidth(rating) {
+    return `${rating * 10}%`;
   }
 
 }

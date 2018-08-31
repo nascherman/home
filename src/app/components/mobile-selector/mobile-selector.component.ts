@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-import animations from './carousel.animations';
+import animations from './mobile-selector.animations';
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss'],
+  selector: 'app-mobile-selector',
+  templateUrl: './mobile-selector.component.html',
+  styleUrls: ['./mobile-selector.component.scss'],
   animations
 })
 export class CarouselComponent implements OnInit {
@@ -19,8 +19,8 @@ export class CarouselComponent implements OnInit {
   }
 
   getCarouselPosition(item) {
-    const currentItemIndex = this.items.findIndex(item => {
-      return item.id === this.currentItem.id;
+    const currentItemIndex = this.items.findIndex(i => {
+      return i.id === this.currentItem.id;
     });
 
     const itemIndex = this.items.findIndex(i => {

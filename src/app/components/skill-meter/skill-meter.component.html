@@ -4,8 +4,12 @@
       <li *ngFor="let subSkill of skill.subskills">
         <div class="bar__container">
           <div class="bar__label"><p>{{subSkill.name}}</p></div>
-          <div class="bar__fill"></div>
-          <span>{{subSkill.rating}}</span>
+          <div class="bar__fill" [ngStyle]="{width: getBarWidth(subSkill.rating)}"></div>
+          <div class="bar__rating">
+            <div>
+              <span>{{subSkill.rating}}</span>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
