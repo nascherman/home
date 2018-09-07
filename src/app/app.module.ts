@@ -7,6 +7,7 @@ import { NgReduxModule } from "@angular-redux/store";
 import { NgReduxRouterModule } from "@angular-redux/router";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { StoreModule } from './store/store.module';
 
@@ -18,15 +19,15 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { SplashComponent } from './components/splash/splash.component';
 import { SplashDialogueComponent } from './components/splash-dialogue/splash-dialogue.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { SketchesComponent } from './components/sketches/sketches.component';
 
 import {appRoutes} from './config/route.config';
 import { ContactComponent } from './components/contact/contact.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SkillMeterComponent } from './components/skill-meter/skill-meter.component';
-import { CarouselComponent } from './components/mobile-selector/mobile-selector.component';
 import { FilterByPipe } from './pipes/filter-by.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
+import { ModalComponent } from './components/modal/modal.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
 
 
 @NgModule({
@@ -38,13 +39,13 @@ import { PhonePipe } from './pipes/phone.pipe';
     SplashComponent,
     SplashDialogueComponent,
     SummaryComponent,
-    SketchesComponent,
     ContactComponent,
     SkillsComponent,
     SkillMeterComponent,
-    CarouselComponent,
     FilterByPipe,
-    PhonePipe
+    PhonePipe,
+    ModalComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,8 @@ import { PhonePipe } from './pipes/phone.pipe';
     NgReduxRouterModule,
     StoreModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [PhonePipe],
   bootstrap: [AppComponent]

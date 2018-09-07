@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from '@angular-redux/router';
 
 import { toggleReducer } from "../components/nav/nav.reducer";
-
+import { modalReducer } from "../components/modal/modal.reducer";
 
 import routeConfig from '../config/route.config';
 import {mobileBreakpointReducer} from "../app.reducer";
@@ -15,5 +15,6 @@ export const rootReducer = combineReducers({
   responsiveBreakpoint: () => {
     return RESPONSIVE_BREAKPOINT;
   },
-  isResponsiveBreakpoint: mobileBreakpointReducer
+  isResponsiveBreakpoint: mobileBreakpointReducer,
+  modalVisibility: modalReducer
 });

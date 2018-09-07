@@ -2,4 +2,7 @@
 <main [@routeAnimation]="routerOutletState">
   <router-outlet></router-outlet>
 </main>
+<div class="splash-cover"
+     (click)="handleSplashClick()"
+     *ngIf="(navState | async) || (modalVisibility | async)"></div>
 

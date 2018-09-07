@@ -1,6 +1,5 @@
 import { SplashComponent } from '../components/splash/splash.component';
 import { SummaryComponent } from '../components/summary/summary.component';
-import { SketchesComponent } from '../components/sketches/sketches.component';
 import { SkillsComponent } from "../components/skills/skills.component";
 import { ContactComponent } from "../components/contact/contact.component";
 

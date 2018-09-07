@@ -4,4 +4,5 @@ export interface IAppState {
   navState?: any;
   isResponsiveBreakpoint?: any;
   responsiveBreakpoint?: number;
+  modalVisibility?: boolean;
 };

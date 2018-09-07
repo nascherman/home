@@ -1,2 +1,14 @@
 @import 'styles/normalize.css';
 @import 'styles/variables';
+
+.route {
+  &__scroller {
+    overflow-y: scroll;
+  }
+
+  &__container {
+    height: 100%;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+}

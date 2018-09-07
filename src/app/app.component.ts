@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
   lastRoute: string = '';
 
   @select() router: Observable<any>;
+  @select() navState: Observable<any>;
+  @select() modalVisibility: Observable<any>;
+
+  internalNavState: boolean;
+  internalModalVisibility: boolean;
 
   routerOutletState: any;
 
@@ -53,8 +58,15 @@ export class AppComponent implements OnInit {
         }
       };
 
-
       this.lastRoute = val;
+    });
+
+    this.navState.subscribe(res => {
+      this.internalNavState = res;
+    });
+
+    this.modalVisibility.subscribe(res => {
+      this.internalModalVisibility = res;
     });
   }
 
@@ -71,9 +83,20 @@ export class AppComponent implements OnInit {
     return width < mobileBreakpoint;
   }
 
+  handleSplashClick() {
+    if (this.internalModalVisibility) {
+      this.toggleModal();
+    }
+
+    if (this.internalNavState) {
+      this.toggleNavigation();
+    }
+  }
+
   @dispatch() setMobileBreakpoint = isMobileBreakpoint => ({
     value: isMobileBreakpoint,
     type: 'IS_MOBILE_BREAKPOINT'
   });
   @dispatch() toggleNavigation = () => ({type: 'TOGGLE_NAVIGATION'})
+  @dispatch() toggleModal = () => ({type: 'TOGGLE_MODAL'})
 }
