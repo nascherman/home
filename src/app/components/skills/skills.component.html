@@ -1,22 +1,12 @@
-<div class="skills__container">
-  <div class="skills__list">
-    <ul *ngIf="!(isResponsiveBreakpoint | async)">
-      <li *ngFor="let skill of config.skills; let i = index"
-          (click)="updateCurrentSkill(skill)">
-        <img src="{{skill.icon}}" role="button"
-             alt="{{skill.name}}"/>
-        <h2>{{skill.name}}</h2>
-      </li>
-    </ul>
-    <app-mobile-selector *ngIf="isResponsiveBreakpoint | async"
-                  [items]="config.skills"
-                  [currentItem]="currentSkill"
-                  [clickItemFn]="updateCurrentSkill"></app-mobile-selector>
-  </div>
+<div class="skills__container route__container">
+  <div class="skills__item"
+       *ngFor="let currentSkill of config.skills; let i = index">
   <div class="skills__details">
     <div class="skills__description">
+      <h2>{{currentSkill.name}}</h2>
       <p id="{{i + 'Description'}}">{{currentSkill.description}}</p>
     </div>
     <app-skill-meter [skill]="currentSkill"></app-skill-meter>
+  </div>
   </div>
 </div>

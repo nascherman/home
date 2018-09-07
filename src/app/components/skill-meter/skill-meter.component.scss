@@ -5,8 +5,7 @@
 .skill-meter {
   &__container {
     height: 100%;
-    width: calc(100% - 1em);
-    padding: 1em;
+    padding: 0 2rem;
     box-sizing: border-box;
   }
 
@@ -16,6 +15,7 @@
     ul {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       list-style-type: none;
       height: 100%;
       padding: 0;
@@ -56,10 +56,10 @@
     min-width: 3rem;
     display: flex;
     justify-content: flex-end;
-    text-align: center;
+    flex-grow: 1;
 
     div {
-
+      padding-right: 1em;
     }
   }
 }

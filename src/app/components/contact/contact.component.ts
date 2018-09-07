@@ -5,6 +5,7 @@ import { ContactService } from "./contact.service";
 import { PhonePipe } from "../../pipes/phone.pipe";
 import ContactConfig from './contact-config';
 
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-contact',
@@ -15,8 +16,9 @@ export class ContactComponent implements OnInit {
 
   model = new Contact('', '', '', '');
   formErrors: Array<string> = [];
-
   contactItems = ContactConfig.contactItems;
+
+  faMinusCircle = faMinusCircle;
 
   constructor(
     private contactService: ContactService,
@@ -29,7 +31,11 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     console.log('SUBMIT', this.model);
     this.contactService
-      .sendForm(this.model)
+      .sendForm(this.model, (messages: Array<string>) => {
+        if (messages) {
+          this.formErrors = messages;
+        }
+      })
       .subscribe();
   }
 

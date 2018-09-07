@@ -1,19 +1,17 @@
+import { faLinkedin, faGithub } from "@fortawesome/fontawesome-free-brands";
+
+
 export default {
   contactItems: [
     {
       name: 'LinkedIn',
       url: '',
-      imgUrl: '/assets/icons/icon-72x72.png'
+      icon: faLinkedin
     },
     {
-      name: 'LinkedIn',
+      name: 'Github',
       url: '',
-      imgUrl: '/assets/icons/icon-72x72.png'
-    },
-    {
-      name: 'LinkedIn',
-      url: '',
-      imgUrl: '/assets/icons/icon-72x72.png'
+      icon: faGithub
     }
   ]
 };

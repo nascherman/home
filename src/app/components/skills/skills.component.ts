@@ -12,16 +12,9 @@ import config from './skills.config';
 export class SkillsComponent implements OnInit {
 
   config = config;
-  currentSkill: any = config.skills[0];
-
-  @select() isResponsiveBreakpoint: Observable<any>;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  updateCurrentSkill(skill: Object) {
-    this.currentSkill = skill;
   }
 }

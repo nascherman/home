@@ -7,16 +7,10 @@ import {Observable} from "rxjs/index";
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   static readonly TOGGLE_NAVIGATION = 'TOGGLE_NAVIGATION';
 
-  @select() navState: Observable<any>;
-  @select() router: Observable<any>
+  @select() router: Observable<any>;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
-  @dispatch() handleSplashClick = () => ({ type: 'TOGGLE_NAVIGATION' });
 }
