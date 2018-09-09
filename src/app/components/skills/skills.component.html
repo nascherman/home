@@ -6,7 +6,15 @@
       <h2>{{currentSkill.name}}</h2>
       <p id="{{i + 'Description'}}">{{currentSkill.description}}</p>
     </div>
-    <app-skill-meter [skill]="currentSkill"></app-skill-meter>
+    <app-skill-meter [skill]="currentSkill"
+                     (clickItem)="launchModal($event)"></app-skill-meter>
   </div>
   </div>
 </div>
+<app-modal [visibility]="internalModalVisibility">
+  <h1>{{subSkill.name}}</h1>
+  <div>
+    <p>{{subSkill.description}}</p>
+  </div>
+</app-modal>
+

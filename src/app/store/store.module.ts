@@ -9,6 +9,11 @@ import persistState from 'redux-localstorage';
 import { IAppState } from './store.model';
 import { rootReducer } from './store.reducers';
 
+const stateToStore: Array<string> = [
+  'router',
+  'navState',
+];
+
 @NgModule({
   imports: [
     NgReduxModule,
@@ -27,8 +32,8 @@ export class StoreModule {
       {},
       [ reduxLogger ],
       devTools.isEnabled() ?
-        [persistState(), devTools.enhancer() ] :
-        [persistState()]
+        [persistState(stateToStore), devTools.enhancer() ] :
+        [persistState(stateToStore)]
     );
 
     if (ngReduxRouter) {

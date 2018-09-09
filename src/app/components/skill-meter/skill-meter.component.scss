@@ -30,6 +30,7 @@
 
 .bar {
   &__container {
+    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
@@ -43,16 +44,31 @@
     justify-content: center;
     align-items: center;
     min-width: 6rem;
+    max-width: 6rem;
     background-color: royalblue;
     color: white;
+
+    transition: 400ms all;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darkgrey;
+    }
+
   }
 
   &__fill {
     background-color: blueviolet;
     height: 100%;
+    width: 0;
+    transition: width 1000ms ease-in-out;
   }
 
   &__rating {
+    position: absolute;
+    width: 100%;
+
     min-width: 3rem;
     display: flex;
     justify-content: flex-end;

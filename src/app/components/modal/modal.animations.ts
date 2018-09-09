@@ -4,24 +4,21 @@ export default [
   trigger('visibility', [
     state('hidden', style({
       visibility: 'hidden',
-      transform: 'scale(0)'
     })),
-    // state('visible', style({
-    //   visibility: 'visible'
-    // })),
     transition('hidden => visible',
       sequence([
         style({
           visibility: 'visible',
+          transform: 'translateY({{offsetLeave}}vh)'
         }),
         animate('400ms ease-in-out', style({
-          transform: 'scale(1)'
+          transform: 'translateY({{offsetEnter}}px)'
         }))
       ])),
     transition('visible => hidden',
       sequence([
         animate('400ms ease-in-out', style({
-          transform: 'scale(0)'
+          transform: 'translateY({{offsetLeave}}vh)'
         })),
         style({
           visibility: 'hidden'

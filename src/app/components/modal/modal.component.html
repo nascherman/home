@@ -1,6 +1,7 @@
 <div class="modal__container"
-     [@visibility]="visibility ? 'visible' : 'hidden'">
-  <div>
+     [@visibility]="modalAnimation">
+    <fa-icon [icon]="faTimesCircle"
+             class="modal__close"
+             (click)="toggleModal()"></fa-icon>
     <ng-content ></ng-content>
-  </div>
 </div>

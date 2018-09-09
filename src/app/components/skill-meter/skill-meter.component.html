@@ -2,9 +2,9 @@
   <div class="skill-meter__list">
     <ul>
       <li *ngFor="let subSkill of skill.subskills">
-        <div class="bar__container">
-          <div class="bar__label"><p>{{subSkill.name}}</p></div>
-          <div class="bar__fill" [ngStyle]="{width: getBarWidth(subSkill.rating)}"></div>
+        <div #el class="bar__container">
+          <div class="bar__label" (click)="toggleModal(subSkill)"><p>{{subSkill.name}}</p></div>
+          <div class="bar__fill" [ngStyle]="{width: isVisible ? getBarWidth(subSkill.rating, el) : 0}"></div>
           <div class="bar__rating">
             <div>
               <span>{{subSkill.rating}}</span>

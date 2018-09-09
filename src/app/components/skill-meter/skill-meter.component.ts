@@ -1,4 +1,5 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {dispatch} from "@angular-redux/store";
 
 @Component({
   selector: 'app-skill-meter',
@@ -7,14 +8,43 @@ import {Component, ElementRef, Input, OnInit} from '@angular/core';
 })
 export class SkillMeterComponent implements OnInit {
   @Input() skill: any;
+  @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
+
+  private isVisible: boolean = false;
+  private observer: any;
 
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
+    // no IE compatibility
+    if (IntersectionObserver) {
+      this.observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.intersectionRatio > 0) {
+            this.handleScrollIntoView();
+          }
+        });
+      });
+
+      this.observer.observe(this.elementRef.nativeElement);
+    } else {
+      this.handleScrollIntoView();
+    }
   }
 
-  getBarWidth(rating) {
-    return `${rating * 10}%`;
+  handleScrollIntoView() {
+    this.isVisible = true;
   }
 
+  getBarWidth(rating, element) {
+    const containerWidth = element.clientWidth;
+    const labelWidth = element.querySelector('.bar__label')
+      .getBoundingClientRect().width;
+
+    return `${(containerWidth - labelWidth) * (rating / 10)}px`
+  }
+
+  toggleModal(subSkill: any) {
+    this.clickItem.emit(subSkill)
+  }
 }

@@ -1,17 +1,36 @@
+@import '../../../styles/variables';
+
+$_close_icon_padding: 1rem;
+
 .modal {
   &__container {
     position: fixed;
-    top: 0;
+    top: $top-navigation-height;
     left: 0;
     width:  100vw;
-    height: 100vh;
+    height: calc(100vh - #{$top-navigation-height});
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+
+    padding: 0 2rem;
+    box-sizing: border-box;
+
+    z-index: 4;
+
+    background-color: white;
 
     &--visible {
       visibility: visible;
     }
+  }
+
+  &__close {
+    font-size: 2rem;
+    position: absolute;
+    top: $_close_icon_padding;
+    right: $_close_icon_padding;
   }
 }
