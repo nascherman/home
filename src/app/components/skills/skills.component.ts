@@ -16,7 +16,9 @@ export class SkillsComponent implements OnInit {
   protected internalModalVisibility: boolean = false;
   protected  subSkill: any = {
     name: '',
-    description: ''
+    description: '',
+    rating: 0,
+    technologies: []
   };
 
   config = config;
@@ -32,6 +34,10 @@ export class SkillsComponent implements OnInit {
   launchModal(subSkill) {
     this.subSkill = subSkill;
     this.toggleModal();
+  }
+
+  isIconLogo(logo) {
+    return logo instanceof Object;
   }
 
   @dispatch() private toggleModal = () => ({type: 'TOGGLE_MODAL'})

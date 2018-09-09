@@ -28,6 +28,7 @@ import { FilterByPipe } from './pipes/filter-by.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { StarMeterComponent } from './components/star-meter/star-meter.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
     FilterByPipe,
     PhonePipe,
     ModalComponent,
-    TooltipComponent
+    TooltipComponent,
+    StarMeterComponent
   ],
   imports: [
     BrowserModule,

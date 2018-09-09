@@ -44,6 +44,24 @@
       text-align: center;
     }
   }
+
+  &__logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    fa-icon,
+    img {
+      font-size: 3rem;
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__logo-item {
+    padding: 0 .5rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {

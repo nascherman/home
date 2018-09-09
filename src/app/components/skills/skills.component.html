@@ -1,20 +1,29 @@
 <div class="skills__container route__container">
   <div class="skills__item"
        *ngFor="let currentSkill of config.skills; let i = index">
-  <div class="skills__details">
-    <div class="skills__description">
-      <h2>{{currentSkill.name}}</h2>
-      <p id="{{i + 'Description'}}">{{currentSkill.description}}</p>
+    <div class="skills__details">
+      <div class="skills__description">
+        <h2>{{currentSkill.name}}</h2>
+        <p id="{{i + 'Description'}}">{{currentSkill.description}}</p>
+      </div>
+      <app-skill-meter [skill]="currentSkill"
+                       (clickItem)="launchModal($event)"></app-skill-meter>
     </div>
-    <app-skill-meter [skill]="currentSkill"
-                     (clickItem)="launchModal($event)"></app-skill-meter>
-  </div>
   </div>
 </div>
 <app-modal [visibility]="internalModalVisibility">
   <h1>{{subSkill.name}}</h1>
-  <div>
-    <p>{{subSkill.description}}</p>
+  <app-star-meter [rating]="subSkill.rating"></app-star-meter>
+  <p>{{subSkill.description}}</p>
+  <div class="skills__logos">
+    <a class="skills__logo-item"
+       *ngFor="let tech of subSkill.technologies"
+       href="{{tech.website}}" target="_blank">
+      <fa-icon [icon]="tech.logo"
+               *ngIf="isIconLogo(tech.logo)"></fa-icon>
+      <img src="{{tech.logo}}"
+           *ngIf="!isIconLogo(tech.logo)"/>
+    </a>
   </div>
 </app-modal>
 

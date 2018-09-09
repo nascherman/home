@@ -55,10 +55,12 @@
     <button type="submit">
       Send
     </button>
+
+    <div class="contact__social-media">
+      <a *ngFor="let item of contactItems" href="{{item.url}}">
+        <fa-icon [icon]="item.icon"></fa-icon>
+      </a>
+    </div>
+
   </form>
-  <div class="contact__social-media">
-    <a *ngFor="let item of contactItems" href="{{item.url}}">
-      <fa-icon [icon]="item.icon"></fa-icon>
-    </a>
-  </div>
 </div>
