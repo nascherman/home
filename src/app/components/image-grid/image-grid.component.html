@@ -1,0 +1,7 @@
+<div class="image-grid__container">
+  <div *ngFor="let item of gridData"
+       class="image-grid__item"
+       (click)="this.onClickItem(item)">
+    {{item.name}}
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {select} from "@angular-redux/store";
 
+import config from './summary.config';
 
 @Component({
   selector: 'app-summary',
@@ -11,10 +12,16 @@ import {select} from "@angular-redux/store";
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
+
+  config: any = config;
+
   constructor() { }
 
   ngOnInit() {
 
   }
 
+  launchModal(data) {
+    console.log('DATA', data);
+  }
 }

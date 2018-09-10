@@ -29,6 +29,7 @@ import { PhonePipe } from './pipes/phone.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { StarMeterComponent } from './components/star-meter/star-meter.component';
+import { ImageGridComponent } from './components/image-grid/image-grid.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { StarMeterComponent } from './components/star-meter/star-meter.component
     PhonePipe,
     ModalComponent,
     TooltipComponent,
-    StarMeterComponent
+    StarMeterComponent,
+    ImageGridComponent
   ],
   imports: [
     BrowserModule,

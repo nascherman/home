@@ -1,0 +1,14 @@
+.image-grid {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    height: 3rem;
+    width: 33%;
+    border: solid black;
+  }
+}
