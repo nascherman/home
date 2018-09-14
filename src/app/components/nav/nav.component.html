@@ -1,5 +1,5 @@
 <div role="banner" class="nav">
-  <app-hamburger></app-hamburger>
+  <app-hamburger *ngIf="isResponsiveBreakpoint | async"></app-hamburger>
   <div class="nav__logo" role="">
     Logo Placeholder
   </div>

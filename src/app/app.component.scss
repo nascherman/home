@@ -1,8 +1,12 @@
+@import '../styles/variables';
+
 main {
   width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
+
+  transition: margin-left $main-animation-timing, width $main-animation-timing;
 }
 
 .splash-cover {
@@ -13,5 +17,11 @@ main {
   top: 0;
 
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 3;
+  z-index: $splash-layer;
+}
+
+@media screen and  (min-width: $responsive-width) {
+  main.nav-open {
+    margin-left: $side-menu-width;
+  }
 }

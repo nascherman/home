@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 // import animations from './summary.animations';
 
-import {select} from "@angular-redux/store";
+import {dispatch, select} from "@angular-redux/store";
 
 import config from './summary.config';
+import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-summary',
@@ -13,15 +14,30 @@ import config from './summary.config';
 })
 export class SummaryComponent implements OnInit {
 
+  @select() modalVisibility: Observable<any>;
+
   config: any = config;
+
+  protected internalModalVisibility: boolean = false;
+  protected currentItem: any = {
+    name: '',
+    category: '',
+    img: '',
+    details: {}
+  };
 
   constructor() { }
 
   ngOnInit() {
-
+    this.modalVisibility.subscribe(res => {
+      this.internalModalVisibility = res;
+    });
   }
 
   launchModal(data) {
-    console.log('DATA', data);
+    this.currentItem = data;
+    this.toggleModal();
   }
+
+  @dispatch() toggleModal = () => ({type: 'TOGGLE_MODAL'});
 }

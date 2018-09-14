@@ -1,14 +1,44 @@
+@import '../../../styles/variables';
+
 .image-grid {
   &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    max-width: $max-content-width;
+    margin: auto;
+  }
+
+  &__filter {
+    width: 100%;
+    display: flex;
+    text-align: center;
+
+    span {
+      border: solid black;
+      flex: 1;
+      padding: 0.5rem;
+    }
   }
 
   &__item {
-    height: 3rem;
-    width: 33%;
+    width: calc(100% / 2);
     border: solid black;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@media screen and (min-width: $responsive-width) {
+  .image-grid {
+    &__item {
+      width: calc(100% / 3);
+    }
   }
 }

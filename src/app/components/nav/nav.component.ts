@@ -11,6 +11,7 @@ export class NavComponent {
   static readonly TOGGLE_NAVIGATION = 'TOGGLE_NAVIGATION';
 
   @select() router: Observable<any>;
+  @select() isResponsiveBreakpoint: Observable<boolean>;
 
   constructor() { }
 }

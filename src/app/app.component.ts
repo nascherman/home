@@ -25,9 +25,11 @@ export class AppComponent implements OnInit {
   @select() router: Observable<any>;
   @select() navState: Observable<any>;
   @select() modalVisibility: Observable<any>;
+  @select() isResponsiveBreakpoint: Observable<boolean>;
 
   internalNavState: boolean;
   internalModalVisibility: boolean;
+  internalIsResponsiveBreakpoint: boolean;
 
   routerOutletState: any;
 
@@ -63,19 +65,47 @@ export class AppComponent implements OnInit {
 
     this.navState.subscribe(res => {
       this.internalNavState = res;
+
+      this.isResponsiveBreakpoint.subscribe(res => {
+        if (!res && !this.internalNavState) {
+          this.toggleNavigation();
+        }
+      });
     });
 
     this.modalVisibility.subscribe(res => {
       this.internalModalVisibility = res;
+
+      if (this.internalModalVisibility) {
+        this.setBodyScroll(false);
+      } else {
+        this.setBodyScroll(true);
+      }
+
+      if (this.internalNavState) {
+        this.toggleNavigation();
+      }
     });
+  }
+
+  setBodyScroll(scroll: boolean) {
+    const { document } = this.windowRef.nativeWindow;
+
+    if (document) {
+      document.body.style.overflowY = scroll ? 'auto' : 'hidden';
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   @debounce()
   handleWindowResize(event) {
-    this.setMobileBreakpoint(
-      this.determineMobileBreakpoint(event.currentTarget.innerWidth)
-    );
+    const isMobileBreakpoint = this.determineMobileBreakpoint(event.currentTarget.innerWidth);
+    this.setMobileBreakpoint(isMobileBreakpoint);
+
+    // hide nav bar if switching to mobile view
+    if (isMobileBreakpoint && this.internalNavState) {
+      this.toggleNavigation();
+    }
   }
 
   determineMobileBreakpoint(width: number) {

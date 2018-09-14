@@ -1,7 +1,22 @@
-<div class="modal__container"
-     [@visibility]="modalAnimation">
+<div [ngStyle]="{visibility: internalStageVisibility ? 'visible' : 'hidden'}"
+     class="modal__stage"
+     [ngClass]="{
+          'modal__stage--desktop': !(isResponsiveBreakpoint | async),
+          'modal__stage--mobile': isResponsiveBreakpoint | async
+        }">
+  <div class="modal__container"
+       [ngClass]="{
+          'modal__container--desktop': !(isResponsiveBreakpoint | async),
+          'modal__container--mobile': isResponsiveBreakpoint | async
+        }"
+       [@visibility]="modalAnimation"
+       (@visibility.done)="handleAnimationDone($event)">
     <fa-icon [icon]="faTimesCircle"
              class="modal__close"
              (click)="toggleModal()"></fa-icon>
-    <ng-content ></ng-content>
+    <div class="modal__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>
+

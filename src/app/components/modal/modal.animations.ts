@@ -5,7 +5,7 @@ export default [
     state('hidden', style({
       visibility: 'hidden',
     })),
-    transition('hidden => visible',
+    transition('hidden => visibleMobile',
       sequence([
         style({
           visibility: 'visible',
@@ -15,7 +15,7 @@ export default [
           transform: 'translateY({{offsetEnter}}px)'
         }))
       ])),
-    transition('visible => hidden',
+    transition('visibleMobile => hidden',
       sequence([
         animate('400ms ease-in-out', style({
           transform: 'translateY({{offsetLeave}}vh)'
@@ -23,6 +23,25 @@ export default [
         style({
           visibility: 'hidden'
         })
+      ])),
+    transition('hidden => visibleDesktop',
+      sequence([
+        style({
+          visibility: 'visible',
+          transform: 'scale(0)'
+        }),
+        animate('400ms ease-in-out', style({
+          transform: 'scale(1)'
+        }))
+      ])),
+    transition('visibleDesktop => hidden',
+      sequence([
+        animate('400ms ease-in-out', style({
+          transform: 'scale(0)'
+        })),
+        style({
+          visibility: 'hidden'
+        })
       ]))
-  ]),
+  ])
 ]

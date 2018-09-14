@@ -13,6 +13,7 @@ import {appRoutes} from "../../config/route.config";
 })
 export class NavMenuComponent {
   @select() navState: Observable<Boolean>;
+  @select() isMobileBreakpoint: Observable<Boolean>;
 
   appRoutes = appRoutes;
 }

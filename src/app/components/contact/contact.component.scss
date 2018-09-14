@@ -4,7 +4,6 @@
   &__container {
     box-sizing: border-box;
     padding: $top-navigation-height 1rem 0;
-    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -17,7 +16,9 @@
   &__form {
     display: flex;
     flex-direction: column;
-    max-width: 40rem;
+
+    width: 100%;
+    max-width: 50rem; // Not max content width
     margin: 0 auto;
   }
 

@@ -10,3 +10,12 @@
                        (clickItem)="launchModal($event)"
   ></app-image-grid>
 </div>
+<app-modal [visibility]="internalModalVisibility">
+  <h1>{{currentItem.name}}</h1>
+  <h3>{{currentItem.details.company}} | {{currentItem.details.date}}</h3>
+  <img src="{{currentItem.img}}" alt=""/>
+  <p>{{currentItem.details.description}}</p>
+  <a *ngIf="currentItem.details.externalURL"
+     href="{{currentItem.details.externalURL}}"
+     target="_blank">Visit</a>
+</app-modal>

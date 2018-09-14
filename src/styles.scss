@@ -1,14 +1,29 @@
 @import 'styles/normalize.css';
 @import 'styles/variables';
 
-.route {
-  &__scroller {
-    overflow-y: scroll;
-  }
+body {
+  overflow-x: hidden;
+}
 
+.route {
   &__container {
+    width: 100vw;
     height: 100%;
-    overflow-y: visible;
-    overflow-x: hidden;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    transition: width $main-animation-timing;
+  }
+}
+
+p {
+  text-align: justify;
+}
+
+@media screen and (min-width: $responsive-width) {
+  main.nav-open {
+    .route__container {
+      width: calc(100vw - #{$side-menu-width});
+    }
   }
 }

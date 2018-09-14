@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 :host {
   flex: 1;
 }
@@ -49,7 +51,7 @@
     color: white;
 
     transition: 400ms all;
-    z-index: 1;
+    z-index: $content-layer;
     cursor: pointer;
 
     &:hover {

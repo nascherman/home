@@ -2,4 +2,14 @@ $responsive-width: 1024px; // only one
 
 $top-navigation-height: 5rem;
 
-$side-menu-width: 85rem;
+$side-menu-width: 20rem;
+$max-content-width: 60rem;
+
+
+// App layers
+$content-layer: 1;
+$splash-layer: 2;
+$route-layer: 3;
+$modal-layer: 4;
+
+$main-animation-timing: 400ms ease-in-out;

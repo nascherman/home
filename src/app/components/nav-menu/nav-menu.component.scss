@@ -6,13 +6,12 @@ nav {
   top: $top-navigation-height;
   height: calc(100vh - #{$top-navigation-height});
   width: $side-menu-width;
-  max-width: 325px;
   background-color: rgba(0, 0, 0, 0.4);
 
   display: flex;
   flex-direction: column;
 
-  z-index: 4;
+  z-index: $modal-layer;
 
   a {
     padding: 2rem 0;

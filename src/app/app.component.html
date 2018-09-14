@@ -1,8 +1,9 @@
 <app-nav></app-nav>
-<main [@routeAnimation]="routerOutletState">
+<main [@routeAnimation]="routerOutletState"
+      [ngClass]="{'nav-open': (navState | async)}">
   <router-outlet></router-outlet>
 </main>
 <div class="splash-cover"
      (click)="handleSplashClick()"
-     *ngIf="(navState | async) || (modalVisibility | async)"></div>
+     *ngIf="((navState | async) && (isResponsiveBreakpoint | async)) || (modalVisibility | async)"></div>
 

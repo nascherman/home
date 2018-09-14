@@ -1,7 +1,13 @@
 <div class="image-grid__container">
-  <div *ngFor="let item of gridData"
+  <div class="image-grid__filter">
+    <span *ngFor="let category of getCategories(gridData)"
+          (click)="filterByCategory(category)">
+      {{category}}
+    </span>
+  </div>
+  <div #itemRef *ngFor="let item of currentData"
        class="image-grid__item"
        (click)="this.onClickItem(item)">
-    {{item.name}}
+       <img src="{{item.img}}" alt="" />
   </div>
 </div>
