@@ -8,6 +8,6 @@
   <div #itemRef *ngFor="let item of currentData"
        class="image-grid__item"
        (click)="this.onClickItem(item)">
-       <img src="{{item.img}}" alt="" />
+       <img src="{{item.images[0]}}" alt="" />
   </div>
 </div>

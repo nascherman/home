@@ -1,11 +1,15 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faStarHalfAlt as faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarEmpty } from "@fortawesome/fontawesome-free-regular";
+
+import animations from './star-meter.animations';
 
 @Component({
   selector: 'app-star-meter',
   templateUrl: './star-meter.component.html',
-  styleUrls: ['./star-meter.component.scss']
+  styleUrls: ['./star-meter.component.scss'],
+  animations
 })
 export class StarMeterComponent implements OnInit, OnChanges {
 
@@ -35,6 +39,10 @@ export class StarMeterComponent implements OnInit, OnChanges {
       } else {
         this.iconGroup.push(faStarHalf);
       }
+    }
+
+    while (this.iconGroup.length < 5) {
+      this.iconGroup.push(faStarEmpty);
     }
   }
 }

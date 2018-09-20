@@ -1,0 +1,13 @@
+<div #component class="image-swiper__container">
+  <div #panEl class="image-swiper__pan-container"
+       (pan)="onPan($event, panEl)"
+       (panend)="onPanEnd($event, panEl)">
+
+    <img *ngFor="let image of internalImageArray"
+         src="{{image.image}}"
+         [@animation]="image.animationState"/>
+  </div>
+  <div class="image-swiper__pages">
+    <fa-icon *ngFor="let icon of pageIcons" [icon]="icon"></fa-icon>
+  </div>
+</div>

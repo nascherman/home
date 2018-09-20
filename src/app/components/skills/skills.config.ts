@@ -23,6 +23,36 @@ export default {
               name: 'JWT',
               logo: '/assets/icons/jwt.svg',
               website: 'https://jwt.io/'
+            },
+            {
+              name: 'Angular',
+              logo: faAngular,
+              website: 'https://angular.io/'
+            },
+            {
+              name: 'JWT',
+              logo: '/assets/icons/jwt.svg',
+              website: 'https://jwt.io/'
+            },
+            {
+              name: 'Angular',
+              logo: faAngular,
+              website: 'https://angular.io/'
+            },
+            {
+              name: 'JWT',
+              logo: '/assets/icons/jwt.svg',
+              website: 'https://jwt.io/'
+            },
+            {
+              name: 'Angular',
+              logo: faAngular,
+              website: 'https://angular.io/'
+            },
+            {
+              name: 'JWT',
+              logo: '/assets/icons/jwt.svg',
+              website: 'https://jwt.io/'
             }
           ]
         },

@@ -2,7 +2,7 @@ export default [
   {
     name: 'Something',
     category: 'something',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png', '/assets/images/320x180.png', '/assets/images/320x180.png', '/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -13,7 +13,7 @@ export default [
   {
     name: 'Something',
     category: 'something else',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -24,7 +24,7 @@ export default [
   {
     name: 'Something',
     category: 'something more',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -35,7 +35,7 @@ export default [
   {
     name: 'Something',
     category: 'something else',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -46,7 +46,7 @@ export default [
   {
     name: 'Something',
     category: 'something',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -57,7 +57,7 @@ export default [
   {
     name: 'Something',
     category: 'something',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -68,7 +68,7 @@ export default [
   {
     name: 'Something',
     category: 'something else',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -79,7 +79,7 @@ export default [
   {
     name: 'Something',
     category: 'something more',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -90,7 +90,7 @@ export default [
   {
     name: 'Something',
     category: 'something else',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',
@@ -101,7 +101,7 @@ export default [
   {
     name: 'Something',
     category: 'something',
-    img: '/assets/images/320x180.png',
+    images: ['/assets/images/320x180.png', '/assets/images/320x180.png'],
     details: {
       company: 'Jam3',
       date: '2018/08/19',

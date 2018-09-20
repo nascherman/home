@@ -3,11 +3,13 @@ import {Observable} from "rxjs/index";
 import {dispatch, select} from "@angular-redux/store";
 
 import config from './skills.config';
+import animations from './skills.animations';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss']
+  styleUrls: ['./skills.component.scss'],
+  animations
 })
 export class SkillsComponent implements OnInit {
 

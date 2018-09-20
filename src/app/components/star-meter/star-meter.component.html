@@ -1,5 +1,3 @@
-<div class="star__container">
-  <div *ngFor="let icon of iconGroup">
-    <fa-icon [icon]="icon"></fa-icon>
-  </div>
+<div class="star__container" [@starAnimation]="iconGroup.length">
+  <fa-icon *ngFor="let icon of iconGroup" [icon]="icon"></fa-icon>
 </div>

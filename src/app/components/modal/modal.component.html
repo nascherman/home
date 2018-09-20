@@ -14,8 +14,8 @@
     <fa-icon [icon]="faTimesCircle"
              class="modal__close"
              (click)="toggleModal()"></fa-icon>
-    <div class="modal__content">
-      <ng-content></ng-content>
+    <div class="modal__content" >
+      <template *ngTemplateOutlet="modalContent"></template>
     </div>
   </div>
 </div>

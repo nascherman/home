@@ -47,4 +47,16 @@
   &__logo-item {
     padding: 0 .5rem;
   }
+
+  &__modal {
+    padding: 0 1rem;
+    max-width: 40rem;
+    margin: auto;
+
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+    }
+  }
 }

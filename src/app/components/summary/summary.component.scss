@@ -9,30 +9,54 @@
   }
 
   &__heading-container {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     background: grey;
     border: 1px solid darkblue;
     padding-top: $top-navigation-height;
     flex-shrink: 0;
+    max-height: 50%;
   }
 
-  &__img {
-    border-radius: 50%;
-    width: 36%;
-    max-width: 20rem;
-    margin: 1rem auto;
-  }
+  &__selling-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  &__heading,
-  &__brief {
-    margin: 0.5rem 0;
-    text-align: center;
+    background: salmon;
   }
 
   &__description {
     padding: 1rem 2rem;
     max-width: $max-content-width;
     margin: 0 auto;
+  }
+}
+
+// Summary modal
+app-modal {
+  app-image-swiper {
+    width: 100%;
+  }
+
+  // non carousel modal content;
+  .summary-modal {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      padding: 0 1rem;
+      max-width: 40rem;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (min-width: $responsive-width) {
+  app-modal {
+    app-image-swiper {
+      width: 50%;
+    }
   }
 }

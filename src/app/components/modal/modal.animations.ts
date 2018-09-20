@@ -1,4 +1,4 @@
-import {animate, sequence, state, style, transition, trigger} from "@angular/animations";
+import {animate, animateChild, query, sequence, state, style, transition, trigger} from "@angular/animations";
 
 export default [
   trigger('visibility', [
@@ -13,7 +13,8 @@ export default [
         }),
         animate('400ms ease-in-out', style({
           transform: 'translateY({{offsetEnter}}px)'
-        }))
+        })),
+        query("@*", [animateChild()], {optional: true}),
       ])),
     transition('visibleMobile => hidden',
       sequence([
@@ -32,7 +33,8 @@ export default [
         }),
         animate('400ms ease-in-out', style({
           transform: 'scale(1)'
-        }))
+        })),
+        query("@*", [animateChild()], {optional: true}),
       ])),
     transition('visibleDesktop => hidden',
       sequence([

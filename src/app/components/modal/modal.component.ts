@@ -13,6 +13,7 @@ import {faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 })
 export class ModalComponent implements OnChanges, OnInit{
   @Input() visibility: boolean;
+  @Input() modalContent: any;
 
   @select() isResponsiveBreakpoint: any;
   @select() modalVisibility: any;

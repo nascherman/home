@@ -6,8 +6,10 @@
   <fa-icon class="tooltip__icon" [icon]="faInfoCircle"></fa-icon>
 
   <div class="tooltip__caption"
+       [ngClass]="{'tooltip__caption--right': direction === 'right',
+                  'tooltip__caption--left': direction === 'left'}"
        [@visibility]="visible ? 'visible' : 'hidden'">
-    {{caption}}
+    <p>{{caption}}</p>
   </div>
 </div>
 

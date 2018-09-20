@@ -12,13 +12,16 @@ $_close_icon_padding: 1rem;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+
 
     z-index: $route-layer;
 
     &--desktop {
       left: $side-menu-width;
       width: calc(100vw - #{$side-menu-width});
+
+      padding-top: $top-navigation-height;
     }
   }
 
@@ -45,15 +48,7 @@ $_close_icon_padding: 1rem;
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    padding: 0 2rem 0.5rem;
-    margin: auto;
     box-sizing: border-box;
-    max-width: 40rem;
   }
 
   &__close {
@@ -61,5 +56,7 @@ $_close_icon_padding: 1rem;
     position: absolute;
     top: $_close_icon_padding;
     right: $_close_icon_padding;
+
+    z-index: 1;
   }
 }

@@ -17,12 +17,14 @@ export class SummaryComponent implements OnInit {
   @select() modalVisibility: Observable<any>;
 
   config: any = config;
+  sellingCaption: string = `Touch the images below to explore some of
+    my work. Touch the category button above the images to filter the results.`;
 
   protected internalModalVisibility: boolean = false;
   protected currentItem: any = {
     name: '',
     category: '',
-    img: '',
+    images: [''],
     details: {}
   };
 

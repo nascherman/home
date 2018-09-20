@@ -30,6 +30,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { StarMeterComponent } from './components/star-meter/star-meter.component';
 import { ImageGridComponent } from './components/image-grid/image-grid.component';
+import { ImageSwiperComponent } from './components/image-swiper/image-swiper.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ImageGridComponent } from './components/image-grid/image-grid.component
     ModalComponent,
     TooltipComponent,
     StarMeterComponent,
-    ImageGridComponent
+    ImageGridComponent,
+    ImageSwiperComponent
   ],
   imports: [
     BrowserModule,

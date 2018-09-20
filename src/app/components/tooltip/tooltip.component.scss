@@ -1,5 +1,18 @@
 $caption-color: white;
 
+@mixin caption-triangle() {
+  $_caption-triangle-size: 0.3em;
+
+  position: absolute;
+  bottom: calc(-#{$_caption-triangle-size} + 1px);
+
+  content: '';
+  border-left: $_caption-triangle-size solid transparent;
+  border-right: $_caption-triangle-size solid transparent;
+
+  border-top: $_caption-triangle-size solid $caption-color;
+}
+
 .tooltip {
 
   &__container {
@@ -9,26 +22,37 @@ $caption-color: white;
   &__caption {
     position: absolute;
     top: 0;
-    left: .2em; // required because of icon used
-    min-width: 8em;
-    max-width: 20em;
+    //left: .2em; // required because of icon used
+    width: 12em;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-    padding: .1em;
     background: $caption-color;
     opacity: 0;
 
-    &::before {
-      $_caption-triangle-size: 0.3em;
+    // caption bubble to the right triangle on the left end
+    &--right {
+      left: .2em;
 
-      position: absolute;
-      bottom: calc(-#{$_caption-triangle-size} + 1px);
-      left: 0;
+      &::before {
+        @include caption-triangle();
+        left: 0;
+      }
+    }
 
-      content: '';
-      border-left: $_caption-triangle-size solid transparent;
-      border-right: $_caption-triangle-size solid transparent;
+    &--left {
+      right: .2em;
 
-      border-top: $_caption-triangle-size solid $caption-color;
+      &::after {
+        @include caption-triangle();
+        right: 0;
+      }
+    }
+
+    p {
+      margin: 0;
+      padding: 0.3em;
     }
   }
 }

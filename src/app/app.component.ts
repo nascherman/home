@@ -1,7 +1,8 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, Host, HostListener, OnInit} from '@angular/core';
 import {dispatch, NgRedux, select} from "@angular-redux/store";
 import {Observable} from "rxjs/index";
 import {Store} from 'redux';
+import {Router} from "@angular/router";
 
 import animations from './config/route.animation';
 import {RouteAnimationService} from "./services/route-animation.service";
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit {
 
   constructor(private ngRedux: NgRedux<any>,
               private routeAnimationService: RouteAnimationService,
-              private windowRef: WindowRef) {
+              private windowRef: WindowRef,
+              private routerService: Router) {
   }
 
   ngOnInit() {
@@ -46,10 +48,16 @@ export class AppComponent implements OnInit {
     this.router.subscribe(val => {
       const lastRouteOrder: number = this.routeAnimationService.getRoute(this.lastRoute).order;
       const nextRouteOrder: number = this.routeAnimationService.getRoute(val).order;
-      const navState: string = this.ngRedux.getState().navState;
+      const navState: boolean = this.ngRedux.getState().navState;
+      const modalVisibility: boolean = this.ngRedux.getState().modalVisibility;
 
+      // hide the modal or navigation if they are open during navigation
       if (navState) {
         this.toggleNavigation();
+      }
+
+      if (modalVisibility) {
+        this.toggleModal();
       }
 
       this.routerOutletState = {

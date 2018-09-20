@@ -20,6 +20,17 @@ p {
   text-align: justify;
 }
 
+.button {
+  padding: 1rem;
+  border: solid black;
+  text-align: center;
+  min-width: 5rem;
+
+  &__primary {
+
+  }
+}
+
 @media screen and (min-width: $responsive-width) {
   main.nav-open {
     .route__container {
