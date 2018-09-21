@@ -50,9 +50,10 @@ export class AppComponent implements OnInit {
       const nextRouteOrder: number = this.routeAnimationService.getRoute(val).order;
       const navState: boolean = this.ngRedux.getState().navState;
       const modalVisibility: boolean = this.ngRedux.getState().modalVisibility;
+      const responsiveBreakpoint: boolean = this.ngRedux.getState().isResponsiveBreakpoint;
 
       // hide the modal or navigation if they are open during navigation
-      if (navState) {
+      if (navState && responsiveBreakpoint) {
         this.toggleNavigation();
       }
 

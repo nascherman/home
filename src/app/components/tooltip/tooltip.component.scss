@@ -1,4 +1,6 @@
-$caption-color: white;
+@import '../../../styles/variables';
+
+$caption-color: $color-white;
 
 @mixin caption-triangle() {
   $_caption-triangle-size: 0.3em;
@@ -13,6 +15,14 @@ $caption-color: white;
   border-top: $_caption-triangle-size solid $caption-color;
 }
 
+@mixin box-shadow-caption-right {
+  box-shadow:  $_box-shadow-color .3rem 5px 0;
+}
+
+@mixin box-shadow-caption-left {
+  box-shadow: $_box-shadow-color -.3rem 5px 0;
+}
+
 .tooltip {
 
   &__container {
@@ -22,31 +32,38 @@ $caption-color: white;
   &__caption {
     position: absolute;
     top: 0;
-    //left: .2em; // required because of icon used
     width: 12em;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: 0.5rem;
 
     background: $caption-color;
+    color: $color-black;
+    border: solid 1px $color-grey;
+
     opacity: 0;
 
     // caption bubble to the right triangle on the left end
     &--right {
       left: .2em;
 
+      @include box-shadow-caption-right();
+
       &::before {
         @include caption-triangle();
-        left: 0;
+        left: .3rem;
       }
     }
 
     &--left {
       right: .2em;
 
+      @include box-shadow-caption-left();
+
       &::after {
         @include caption-triangle();
-        right: 0;
+        right: .3rem;
       }
     }
 

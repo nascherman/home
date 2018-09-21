@@ -3,14 +3,13 @@
 .summary {
 
   &__container {
-    background: white;
+    background: $color-white;
     display: flex;
     flex-direction: column;
   }
 
   &__heading-container {
     position: relative;
-    background: grey;
     border: 1px solid darkblue;
     padding-top: $top-navigation-height;
     flex-shrink: 0;
@@ -22,7 +21,8 @@
     justify-content: center;
     align-items: center;
 
-    background: salmon;
+    background: $color-blue;
+    color: $color-white;
   }
 
   &__description {

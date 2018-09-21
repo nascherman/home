@@ -52,7 +52,7 @@
               spellcheck="true"
               required></textarea>
 
-    <button type="submit">
+    <button type="submit" [attr.disabled]="!contactForm.valid">
       Send
     </button>
 

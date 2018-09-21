@@ -36,7 +36,10 @@
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: darkgrey;
+    background-color: $color-grey;
+    color: white;
+    border-radius: .5rem;
+    overflow: hidden;
   }
 
   &__label {
@@ -47,21 +50,21 @@
     align-items: center;
     min-width: 6rem;
     max-width: 6rem;
-    background-color: royalblue;
-    color: white;
+    background-color: $color-blue;
 
     transition: 400ms all;
     z-index: $content-layer;
     cursor: pointer;
 
     &:hover {
-      background-color: darkgrey;
+      background-color: $color-dark-blue;
     }
 
   }
 
   &__fill {
-    background-color: blueviolet;
+    background: linear-gradient($color-yellow, $color-dark-yellow);
+
     height: 100%;
     width: 0;
     transition: width 1000ms ease-in-out;

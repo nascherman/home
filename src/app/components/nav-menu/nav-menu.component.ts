@@ -14,6 +14,8 @@ import {appRoutes} from "../../config/route.config";
 export class NavMenuComponent {
   @select() navState: Observable<Boolean>;
   @select() isMobileBreakpoint: Observable<Boolean>;
+  @select() router: Observable<string>;
 
-  appRoutes = appRoutes;
+  // pop the first element from appRoutes since it defines the fallback route
+  appRoutes: Array<any> = appRoutes.slice(1, appRoutes.length);
 }

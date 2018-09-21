@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: $font-regular;
+  src: url('/assets/fonts/Rubik-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: $font-bold;
+  src: url('/assets/fonts/Rubik-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: $font-regular;
+  src: url('/assets/fonts/Karla-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: $font-italic;
+  src: url('/assets/fonts/Karla-Italic.ttf');
+}

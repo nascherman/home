@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, Input} from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 
 import animations from './hamburger.animations';
@@ -10,12 +10,32 @@ import {Observable} from "rxjs/index";
   styleUrls: ['./hamburger.component.scss'],
   animations
 })
-export class HamburgerComponent {
+export class HamburgerComponent implements AfterContentInit {
 
   @select() navState: Observable<Boolean>;
 
-  constructor() {
+  animationState: any = {
+    value: 'closed',
+    params: {
+      height: 0
+    }
+  };
+
+  constructor(private elementRef: ElementRef) {
   }
 
-  @dispatch() handleButtonClick = () => ({ type: 'TOGGLE_NAVIGATION' });
+  ngAfterContentInit() {
+    const {height} = this.elementRef.nativeElement.getBoundingClientRect();
+
+    this.navState.subscribe(res => {
+      this.animationState = {
+        value: res ? 'open' : 'closed',
+        params: {
+          height
+        }
+      }
+    });
+  }
+
+  @dispatch() handleButtonClick = () => ({type: 'TOGGLE_NAVIGATION'});
 }

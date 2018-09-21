@@ -4,7 +4,7 @@
   &__container {
     box-sizing: border-box;
     padding-top: $top-navigation-height;
-    background-color: cadetblue;
+    background-color: $color-white;
 
     display: flex;
     flex-direction: column;

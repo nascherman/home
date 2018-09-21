@@ -1,7 +1,13 @@
+@import '../../../styles/variables';
+
 .image-swiper {
   &__container {
     position: relative;
     overflow: hidden;
+
+    transition: height 400ms ease-in-out; // asynchronous image load
+
+    @include box-shadow-bottom();
 
     img {
       position: absolute;

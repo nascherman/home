@@ -1,3 +1,5 @@
 <nav [@toolbarState]="(navState | async) ? 'open' : 'closed'">
-  <a *ngFor="let route of appRoutes" routerLink="{{route.path}}" routerLinkActive="active">{{route.path}}</a>
+  <a *ngFor="let route of appRoutes"
+     routerLink="{{route.path}}"
+     routerLinkActive="active">{{route.path}}</a>
 </nav>

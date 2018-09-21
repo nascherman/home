@@ -16,24 +16,22 @@ export default [
 ];
 
 function getIconAnimation(type) {
-  const translationFactor = 2.75;
-
-  let translation: string = type === 'top' ? `calc(100% * ${translationFactor})` : `calc(-100% * ${translationFactor})`;
-  let rotation: string = type === 'top' ? '45deg' : '135deg';
+  let translation: string = type === 'top' ? `` : `-`;
+  let rotation: string = type === 'top' ? '45deg' : '-45deg';
 
   return [
     state('open', style({
-      transform: `translate(0, ${translation}) rotate(${rotation})`
-    })),
+      transform: `translate(0, calc(${translation}{{height}}px/3)) rotate(${rotation})`
+    }), {params: {height: 0}}),
     transition('open => *', [
       animate('0.4s ease-in',
         keyframes([
           style({
-            transform: `translate(0, ${translation}) rotate(${rotation})`,
+            transform: `translate(0, calc(${translation}{{height}}px/3)) rotate(${rotation})`,
             offset: 0
           }),
           style({
-            transform: `translate(0, ${translation}) rotate(0)`,
+            transform: `translate(0, calc(${translation}{{height}}px/3)) rotate(0)`,
             offset: 0.2
           }),
           style({
@@ -42,7 +40,7 @@ function getIconAnimation(type) {
           }),
         ])
       )
-    ]),
+    ], {params: {height: 0}}),
     transition('* => open', [
       animate('0.4s ease-in',
         keyframes([
@@ -51,11 +49,11 @@ function getIconAnimation(type) {
             offset: 0
           }),
           style({
-            transform: `translate(0, ${translation}) rotate(0)`,
+            transform: `translate(0, calc(${translation}{{height}}px/3)) rotate(0)`,
             offset: 0.2
           }),
           style({
-            transform: `translate(0, ${translation}) rotate(${rotation})`,
+            transform: `translate(0, calc(${translation}{{height}}px/3)) rotate(${rotation})`,
             offset: 1
           })
         ])

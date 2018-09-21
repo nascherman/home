@@ -29,7 +29,6 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('SUBMIT', this.model);
     this.contactService
       .sendForm(this.model, (messages: Array<string>) => {
         if (messages) {

@@ -1,8 +1,33 @@
 @import 'styles/normalize.css';
 @import 'styles/variables';
+@import 'styles/fonts';
 
 body {
   overflow-x: hidden;
+  font-family: 'Karla', Arial, sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Rubik', Arial, sans-serif;
+  font-weight: $font-bold;
+}
+
+p,
+a,
+span,
+i {
+  font-family: 'Karla', Arial, sans-serif;
+}
+
+p,
+a,
+span {
+  font-weight: $font-regular;
+}
+
+i {
+  font-weight: $font-italic;
 }
 
 .route {

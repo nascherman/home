@@ -1,6 +1,9 @@
+@import '../../../styles/variables';
+
 .star {
   &__container {
     display: flex;
     justify-content: center;
+    color: $color-yellow;
   }
 }

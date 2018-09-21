@@ -11,5 +11,35 @@ $content-layer: 1;
 $splash-layer: 2;
 $route-layer: 3;
 $modal-layer: 4;
+$nav-layer: 5;
 
 $main-animation-timing: 400ms ease-in-out;
+
+// Font weights
+$font-italic: 100;
+$font-regular: 400;
+$font-bold: 700;
+
+// Theme
+$color-warn: #FFE74C;
+$color-error: #FF5964;
+$color-good: #6BF178;
+
+$color-white: #FFF;
+$color-black: #000;
+
+$color-grey: darkgrey;
+$color-blue: #35A7FF;
+$color-dark-blue: #277ABA;
+
+$color-yellow: $color-warn;
+$color-dark-yellow: #E8D246;
+
+$_box-shadow-color: rgba(0, 0, 0, 0.3);
+@mixin box-shadow-bottom {
+  box-shadow:  $_box-shadow-color 2px 5px 0;
+}
+
+@mixin box-shadow-right {
+  box-shadow: $_box-shadow-color 5px 0 5px 0;
+}
