@@ -7,7 +7,7 @@ import { modalReducer } from "../components/modal/modal.reducer";
 import routeConfig from '../config/route.config';
 import {mobileBreakpointReducer} from "../app.reducer";
 
-const RESPONSIVE_BREAKPOINT = 1024;
+export const RESPONSIVE_BREAKPOINT = 1024;
 
 export const rootReducer = combineReducers({
   router: routerReducer,

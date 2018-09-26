@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImageSwiperComponent } from './image-swiper.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 describe('ImageSwiperComponent', () => {
   let component: ImageSwiperComponent;
@@ -8,6 +9,7 @@ describe('ImageSwiperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FontAwesomeModule ],
       declarations: [ ImageSwiperComponent ]
     })
     .compileComponents();

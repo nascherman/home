@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ParsedNumber} from "libphonenumber-js";
 
-import { ContactService } from "./contact.service";
+import { ContactService } from "../../services/contact.service";
 import { PhonePipe } from "../../pipes/phone.pipe";
 import ContactConfig from './contact-config';
 

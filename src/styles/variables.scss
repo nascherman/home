@@ -35,11 +35,12 @@ $color-dark-blue: #277ABA;
 $color-yellow: $color-warn;
 $color-dark-yellow: #E8D246;
 
-$_box-shadow-color: rgba(0, 0, 0, 0.3);
+$_box-shadow-color: rgba(0, 0, 0, 0.2);
 @mixin box-shadow-bottom {
-  box-shadow:  $_box-shadow-color 2px 5px 0;
+  box-shadow:  $_box-shadow-color 2px 2px 2px;
+
 }
 
 @mixin box-shadow-right {
-  box-shadow: $_box-shadow-color 5px 0 5px 0;
+  box-shadow: $_box-shadow-color 2px 0 2px 2px;
 }

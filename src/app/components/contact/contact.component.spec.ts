@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactComponent } from './contact.component';
+import {FormsModule} from "@angular/forms";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {HttpClientModule} from "@angular/common/http";
+import {PhonePipe} from "../../pipes/phone.pipe";
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -8,7 +12,17 @@ describe('ContactComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactComponent ]
+      imports: [
+        FormsModule,
+        FontAwesomeModule,
+        HttpClientModule
+      ],
+      declarations: [
+        ContactComponent
+      ],
+      providers: [
+        { provide: PhonePipe}
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,6 @@
 <div class="skills__container route__container">
   <div class="skills__item"
-       *ngFor="let currentSkill of config.skills; let i = index">
+       *ngFor="let currentSkill of skills; let i = index">
     <div class="skills__details">
       <div class="skills__description">
         <h2>{{currentSkill.name}}</h2>
@@ -25,10 +25,7 @@
            href="{{tech.website}}"
            target="_blank"
         >
-          <fa-icon [icon]="tech.logo"
-                   *ngIf="isIconLogo(tech.logo)"></fa-icon>
-          <img src="{{tech.logo}}"
-               *ngIf="!isIconLogo(tech.logo)"/>
+          <img src="{{tech.logo}}"/>
         </a>
       </div>
     </div>

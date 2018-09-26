@@ -8,6 +8,8 @@ import { NgReduxRouterModule } from "@angular-redux/router";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { StoreModule } from './store/store.module';
 
@@ -17,7 +19,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { SplashComponent } from './components/splash/splash.component';
-import { SplashDialogueComponent } from './components/splash-dialogue/splash-dialogue.component';
 import { SummaryComponent } from './components/summary/summary.component';
 
 import {appRoutes} from './config/route.config';
@@ -40,7 +41,6 @@ import { ImageSwiperComponent } from './components/image-swiper/image-swiper.com
     HamburgerComponent,
     NavMenuComponent,
     SplashComponent,
-    SplashDialogueComponent,
     SummaryComponent,
     ContactComponent,
     SkillsComponent,
@@ -66,7 +66,9 @@ import { ImageSwiperComponent } from './components/image-swiper/image-swiper.com
     StoreModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [PhonePipe],
   bootstrap: [AppComponent]

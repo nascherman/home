@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges} from '@angular/core';
 
 import animations from './image-grid.animations'
 
@@ -8,7 +8,7 @@ import animations from './image-grid.animations'
   styleUrls: ['./image-grid.component.scss'],
   animations
 })
-export class ImageGridComponent implements OnInit {
+export class ImageGridComponent implements OnInit, OnChanges {
 
   @Input() gridData: any;
   @Input() filterBy: any;
@@ -24,28 +24,39 @@ export class ImageGridComponent implements OnInit {
     this.currentData = this.gridData;
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.gridData) {
+      this.currentData = changes.gridData.currentValue;
+    }
+  }
+
   onClickItem(item) {
     this.clickItem.emit(item);
   }
 
-  getCategories(data) {
+  /**
+   * filters by the components filter criteria and returns a list of unique filter items.
+   * used to filter the available images
+   * @param data an array of image grid items to filter
+   */
+  getFilters(data) {
     return data.reduce((accum, item) => {
-      if (accum.indexOf(item.category) === -1) {
-        accum.push(item.category);
+      if (accum.indexOf(item[this.filterBy]) === -1) {
+        accum.push(item[this.filterBy]);
       }
 
       return accum;
     }, [])
   }
 
-  filterByCategory(category) {
+  filter(category) {
     if (category === this.currentCategory) {
       this.currentData = this.gridData;
       this.currentCategory = '';
     } else {
       this.currentCategory = category;
       this.currentData = this.gridData.filter(item => {
-        return item.category === category;
+        return item[this.filterBy] === category;
       });
     }
   }

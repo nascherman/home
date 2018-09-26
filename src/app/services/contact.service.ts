@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { catchError } from 'rxjs/operators';
 
-import { Contact } from "./contact.component";
+import { Contact } from "../components/contact/contact.component";
 
 // const tempUrl = 'https://mailp-212721.appspot.com/v1/contact';
 const tempUrl = 'http://localhost:8080/v1/contact';

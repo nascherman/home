@@ -1,7 +1,7 @@
 <div class="image-grid__container">
   <div class="image-grid__filter">
-    <span *ngFor="let category of getCategories(gridData)"
-          (click)="filterByCategory(category)">
+    <span *ngFor="let category of getFilters(gridData)"
+          (click)="filter(category)">
       {{category}}
     </span>
   </div>

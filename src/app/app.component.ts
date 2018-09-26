@@ -34,9 +34,9 @@ export class AppComponent implements OnInit {
 
   routerOutletState: any;
 
-  constructor(private ngRedux: NgRedux<any>,
+  constructor(protected ngRedux: NgRedux<any>,
               private routeAnimationService: RouteAnimationService,
-              private windowRef: WindowRef,
+              protected windowRef: WindowRef,
               private routerService: Router) {
   }
 
@@ -48,16 +48,13 @@ export class AppComponent implements OnInit {
     this.router.subscribe(val => {
       const lastRouteOrder: number = this.routeAnimationService.getRoute(this.lastRoute).order;
       const nextRouteOrder: number = this.routeAnimationService.getRoute(val).order;
-      const navState: boolean = this.ngRedux.getState().navState;
-      const modalVisibility: boolean = this.ngRedux.getState().modalVisibility;
-      const responsiveBreakpoint: boolean = this.ngRedux.getState().isResponsiveBreakpoint;
 
       // hide the modal or navigation if they are open during navigation
-      if (navState && responsiveBreakpoint) {
+      if (this.internalNavState && this.internalIsResponsiveBreakpoint) {
         this.toggleNavigation();
       }
 
-      if (modalVisibility) {
+      if (this.internalModalVisibility) {
         this.toggleModal();
       }
 
@@ -75,11 +72,17 @@ export class AppComponent implements OnInit {
     this.navState.subscribe(res => {
       this.internalNavState = res;
 
-      this.isResponsiveBreakpoint.subscribe(res => {
-        if (!res && !this.internalNavState) {
-          this.toggleNavigation();
-        }
-      });
+      if (!this.internalIsResponsiveBreakpoint && !this.internalNavState) {
+        this.toggleNavigation();
+      }
+    });
+
+    this.isResponsiveBreakpoint.subscribe(res => {
+      this.internalIsResponsiveBreakpoint = res;
+
+      if (!res && !this.internalNavState) {
+        // this.toggleNavigation();
+      }
     });
 
     this.modalVisibility.subscribe(res => {

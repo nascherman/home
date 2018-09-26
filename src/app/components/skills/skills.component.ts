@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/index";
 import {dispatch, select} from "@angular-redux/store";
 
-import config from './skills.config';
+import * as skills from './skills.config.json';
 import animations from './skills.animations';
 
 @Component({
@@ -23,7 +23,7 @@ export class SkillsComponent implements OnInit {
     technologies: []
   };
 
-  config = config;
+  skills = Object.assign([], skills);
 
   constructor() { }
 
@@ -36,10 +36,6 @@ export class SkillsComponent implements OnInit {
   launchModal(subSkill) {
     this.subSkill = subSkill;
     this.toggleModal();
-  }
-
-  isIconLogo(logo) {
-    return logo instanceof Object;
   }
 
   @dispatch() private toggleModal = () => ({type: 'TOGGLE_MODAL'})

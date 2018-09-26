@@ -2,6 +2,8 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { RouteAnimationService } from './route-animation.service';
 
+import { appRoutes, routeConstants } from "../config/route.config";
+
 describe('RouteAnimationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -11,5 +13,17 @@ describe('RouteAnimationService', () => {
 
   it('should be created', inject([RouteAnimationService], (service: RouteAnimationService) => {
     expect(service).toBeTruthy();
+  }));
+
+  it('should get the route object given a route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
+    expect(service.getRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[0]);
+  }));
+
+  it('should get the next route given the current route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
+    expect(service.getNextRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[1]);
+  }));
+
+  it('should get the next route given the current route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
+    expect(service.getPreviousRoute(`/${routeConstants.aboutRoute}`)).toBe(appRoutes[0]);
   }));
 });

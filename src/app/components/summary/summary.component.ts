@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-// import animations from './summary.animations';
-
 import {dispatch, select} from "@angular-redux/store";
-
-import config from './summary.config';
 import {Observable} from "rxjs/index";
+import { AngularFirestore} from "@angular/fire/firestore";
+
+// DATA
+import * as config from './summary.config.json';
 
 @Component({
   selector: 'app-summary',
@@ -16,7 +15,7 @@ export class SummaryComponent implements OnInit {
 
   @select() modalVisibility: Observable<any>;
 
-  config: any = config;
+  config: Array<any> = [];
   sellingCaption: string = `Touch the images below to explore some of
     my work. Touch the category button above the images to filter the results.`;
 
@@ -28,7 +27,14 @@ export class SummaryComponent implements OnInit {
     details: {}
   };
 
-  constructor() { }
+  items: Observable<any>;
+
+  constructor(private db: AngularFirestore) {
+    db.collection('summary').valueChanges()
+      .subscribe(res => {
+        this.config = res;
+      });
+  }
 
   ngOnInit() {
     this.modalVisibility.subscribe(res => {
