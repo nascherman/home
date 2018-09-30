@@ -6,6 +6,13 @@ import { AngularFirestore} from "@angular/fire/firestore";
 // DATA
 import * as config from './summary.config.json';
 
+export class SummaryItem {
+  name: string = '';
+  category: string = '';
+  images: Array<string> = [''];
+  details: any = {};
+}
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -20,12 +27,7 @@ export class SummaryComponent implements OnInit {
     my work. Touch the category button above the images to filter the results.`;
 
   protected internalModalVisibility: boolean = false;
-  protected currentItem: any = {
-    name: '',
-    category: '',
-    images: [''],
-    details: {}
-  };
+  protected currentItem: SummaryItem = new SummaryItem();
 
   items: Observable<any>;
 

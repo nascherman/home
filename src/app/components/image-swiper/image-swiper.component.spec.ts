@@ -18,6 +18,7 @@ describe('ImageSwiperComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ImageSwiperComponent);
     component = fixture.componentInstance;
+    component.images = [];
     fixture.detectChanges();
   });
 

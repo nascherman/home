@@ -38,5 +38,5 @@ export class SkillsComponent implements OnInit {
     this.toggleModal();
   }
 
-  @dispatch() private toggleModal = () => ({type: 'TOGGLE_MODAL'})
+  @dispatch() toggleModal = () => ({type: 'TOGGLE_MODAL'})
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ParsedNumber} from "libphonenumber-js";
 
-import { ContactService } from "../../services/contact.service";
-import { PhonePipe } from "../../pipes/phone.pipe";
+import {ContactService} from "../../services/contact.service";
+import {PhonePipe} from "../../pipes/phone.pipe";
 import ContactConfig from './contact-config';
 
-import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import {faMinusCircle} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-contact',
@@ -20,25 +20,26 @@ export class ContactComponent implements OnInit {
 
   faMinusCircle = faMinusCircle;
 
-  constructor(
-    private contactService: ContactService,
-    private phonePipe: PhonePipe
-  ) { }
+  constructor(private contactService: ContactService,
+              private phonePipe: PhonePipe) {
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
     this.contactService
-      .sendForm(this.model, (messages: Array<string>) => {
-        if (messages) {
-          this.formErrors = messages;
-        }
-      })
+      .sendForm(this.model, this.errorHandler)
       .subscribe();
   }
 
-  onPhoneChange($event) {
+  errorHandler(messages: Array<string>) {
+    if (messages) {
+      this.formErrors = messages;
+    }
+  }
+
+  onPhoneChange() {
     this.model.phone = this.phonePipe.transform(this.model.phone);
   }
 
@@ -50,10 +51,9 @@ export class Contact {
   phone: string;
   content: string;
 
-  constructor(
-    name: string,
-    email: string,
-    phone: string,
-    content: string
-  ) {}
+  constructor(name: string,
+              email: string,
+              phone: string,
+              content: string) {
+  }
 }

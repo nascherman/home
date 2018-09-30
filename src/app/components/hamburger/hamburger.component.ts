@@ -12,7 +12,7 @@ import {Observable} from "rxjs/index";
 })
 export class HamburgerComponent implements AfterContentInit {
 
-  @select() navState: Observable<Boolean>;
+  @select() public navState: Observable<Boolean>;
 
   animationState: any = {
     value: 'closed',

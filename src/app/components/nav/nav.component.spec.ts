@@ -5,6 +5,7 @@ import {HamburgerComponent} from "../hamburger/hamburger.component";
 import {NavMenuComponent} from "../nav-menu/nav-menu.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Observable} from "rxjs/index";
 
 describe('NavComponent', () => {
   let component: NavComponent;

@@ -34,8 +34,8 @@ export class RouteAnimationService {
   }
 
   getPreviousRoute(route: string) {
-    const currentRouteIndex = this.getIndexOfRoute(route);
-    const routeIndex = currentRouteIndex - 1 < 0 ?
+    const currentRouteIndex = this.getIndexOfRoute(this.getCleanRoute(route));
+    const routeIndex = currentRouteIndex - 1 < 1 ? // 1 because index 0 is a redirect route
       currentRouteIndex : currentRouteIndex - 1;
 
     return appRoutes[routeIndex]

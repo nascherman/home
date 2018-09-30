@@ -53,7 +53,6 @@ export class AppComponent implements OnInit {
       if (this.internalNavState && this.internalIsResponsiveBreakpoint) {
         this.toggleNavigation();
       }
-
       if (this.internalModalVisibility) {
         this.toggleModal();
       }
@@ -72,17 +71,13 @@ export class AppComponent implements OnInit {
     this.navState.subscribe(res => {
       this.internalNavState = res;
 
-      if (!this.internalIsResponsiveBreakpoint && !this.internalNavState) {
-        this.toggleNavigation();
+      if (this.internalModalVisibility) {
+        this.toggleModal();
       }
     });
 
     this.isResponsiveBreakpoint.subscribe(res => {
       this.internalIsResponsiveBreakpoint = res;
-
-      if (!res && !this.internalNavState) {
-        // this.toggleNavigation();
-      }
     });
 
     this.modalVisibility.subscribe(res => {
@@ -94,7 +89,7 @@ export class AppComponent implements OnInit {
         this.setBodyScroll(true);
       }
 
-      if (this.internalNavState) {
+      if (this.internalNavState && res) {
         this.toggleNavigation();
       }
     });

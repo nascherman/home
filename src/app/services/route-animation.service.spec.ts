@@ -16,14 +16,18 @@ describe('RouteAnimationService', () => {
   }));
 
   it('should get the route object given a route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
-    expect(service.getRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[0]);
+    expect(service.getRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[1]);
   }));
 
   it('should get the next route given the current route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
-    expect(service.getNextRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[1]);
+    expect(service.getNextRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[2]);
   }));
 
   it('should get the next route given the current route string', inject([RouteAnimationService], (service: RouteAnimationService) => {
-    expect(service.getPreviousRoute(`/${routeConstants.aboutRoute}`)).toBe(appRoutes[0]);
+    expect(service.getPreviousRoute(`/${routeConstants.aboutRoute}`)).toBe(appRoutes[1]);
+  }));
+
+  it('should get the first route from previous route given the first route is passed', inject([RouteAnimationService], (service: RouteAnimationService) => {
+    expect(service.getPreviousRoute(`/${routeConstants.welcomeRoute}`)).toBe(appRoutes[1]);
   }));
 });

@@ -11,25 +11,29 @@ export class SkillMeterComponent implements OnInit {
   @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
 
   private isVisible: boolean = false;
-  private observer: any;
+  private observer: IntersectionObserver;
 
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
     // no IE compatibility
     if (IntersectionObserver) {
-      this.observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.intersectionRatio > 0) {
-            this.handleScrollIntoView();
-          }
-        });
-      });
+      this.observer = new IntersectionObserver(
+        entries => this.handleIntersection(entries)
+      );
 
       this.observer.observe(this.elementRef.nativeElement);
     } else {
       this.handleScrollIntoView();
     }
+  }
+
+  handleIntersection(entries) {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+        this.handleScrollIntoView();
+      }
+    });
   }
 
   handleScrollIntoView() {

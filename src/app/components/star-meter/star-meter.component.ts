@@ -15,9 +15,6 @@ export class StarMeterComponent implements OnInit, OnChanges {
 
   @Input() rating: number = 0;
 
-  faStar = faStar;
-  faStarHalf = faStarHalf;
-
   iconGroup : Array<any> = [];
 
   constructor() { }

@@ -15,7 +15,7 @@ export class ImageGridComponent implements OnInit, OnChanges {
 
   @Output() clickItem: EventEmitter<any> = new EventEmitter<any>();
 
-  currentData: any;
+  currentData: any; // potentially filtered grid data
   currentCategory: any = '';
 
   constructor() { }

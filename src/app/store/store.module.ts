@@ -10,8 +10,7 @@ import { IAppState } from './store.model';
 import { rootReducer } from './store.reducers';
 
 const stateToStore: Array<string> = [
-  'router',
-  'navState',
+  'router'
 ];
 
 @NgModule({

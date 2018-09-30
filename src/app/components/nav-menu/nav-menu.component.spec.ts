@@ -5,6 +5,8 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HamburgerComponent} from "../hamburger/hamburger.component";
 
+import { appRoutes } from "../../config/route.config";
+
 describe('NavMenuComponent', () => {
   let component: NavMenuComponent;
   let fixture: ComponentFixture<NavMenuComponent>;
@@ -32,4 +34,12 @@ describe('NavMenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should remove the first route from app routes', async(() => {
+    appRoutes.forEach((route, i) => {
+      if (i > 0) {
+        expect(component.appRoutes[i - 1]).toEqual(route);
+      }
+    })
+  }));
 });
